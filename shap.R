@@ -27,6 +27,7 @@ std1 <- function(x){
 
 # prep shap data
 shap.prep <- function(shap  = shap_result, X_train = mydata$train_mm, top_n){
+  require(ggforce)
   # descending order
   if (missing(top_n)) top_n <- dim(X_train)[2] # by default, use all features
   if (!top_n%in%c(1:dim(X_train)[2])) stop('supply correct top_n')
